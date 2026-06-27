@@ -29,7 +29,7 @@
         <h2>All Employees (47)</h2>
         <input type="text" placeholder="Search employees..." style="padding:8px 12px;border:1px solid var(--gray-300);border-radius:8px;font-size:14px;width:240px">
       </div>
-      <table>
+      <table id="employees-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -110,5 +110,15 @@
     </div>
   </div>
 </div>
+<div class="mobile-nav">
+  <nav>
+    <a href="/"><span class="icon">&#9632;</span>Home</a>
+    <a href="/pipeline"><span class="icon">&#9654;</span>Pipeline</a>
+    <a href="/employees" class="active"><span class="icon">&#9787;</span>Team</a>
+    <a href="/leave"><span class="icon">&#9992;</span>Leave</a>
+  </nav>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/employees.js"></script>
 </body>
 </html>
