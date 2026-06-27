@@ -4,7 +4,7 @@ const leaveRequestSchema = new mongoose.Schema({
   employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee', required: true },
   type: {
     type: String,
-    enum: ['annual', 'sick', 'maternity', 'paternity', 'compassionate', 'unpaid'],
+    enum: ['annual', 'sick', 'maternity', 'paternity', 'compassionate', 'unpaid', 'parental', 'public_holiday', 'study', 'sabbatical'],
     required: true
   },
   startDate: { type: Date, required: true },

@@ -26,7 +26,15 @@ const candidateSchema = new mongoose.Schema({
   }],
   interviewDate: { type: Date },
   offerAmount: { type: Number },
-  offerCurrency: { type: String, default: 'NGN' }
+  offerCurrency: { type: String },
+  location: { type: String },
+  rightToWork: { type: String },
+  gdprConsent: {
+    given: { type: Boolean, default: false },
+    date: Date,
+    withdrawnDate: Date
+  },
+  dataRetentionDays: { type: Number }
 }, { timestamps: true });
 
 candidateSchema.index({ stage: 1, jobTitle: 1 });

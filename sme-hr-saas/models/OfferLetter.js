@@ -5,7 +5,7 @@ const offerLetterSchema = new mongoose.Schema({
   jobTitle: { type: String, required: true },
   department: { type: String, required: true },
   salary: { type: Number, required: true },
-  currency: { type: String, default: 'NGN' },
+  currency: { type: String, required: true },
   startDate: { type: Date, required: true },
   benefits: [String],
   content: { type: String, required: true },
