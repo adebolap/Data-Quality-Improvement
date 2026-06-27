@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeopleBase - HR Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="shell">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">PeopleBase</div>
+    <nav>
+      <a href="/" class="active"><span class="icon">&#9632;</span> Dashboard</a>
+      <a href="/pipeline"><span class="icon">&#9654;</span> Pipeline</a>
+      <a href="/employees"><span class="icon">&#9787;</span> Employees</a>
+      <a href="/leave"><span class="icon">&#9992;</span> Leave</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+      <button class="btn btn-primary">+ Add Employee</button>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="label">Total Employees</div>
+        <div class="value">47</div>
+        <div class="trend up">+3 this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Open Positions</div>
+        <div class="value">5</div>
+        <div class="trend">12 candidates in pipeline</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Pending Leave</div>
+        <div class="value">3</div>
+        <div class="trend down">2 urgent</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Avg. AI Screen Score</div>
+        <div class="value">72</div>
+        <div class="trend up">+5 vs last batch</div>
+      </div>
+    </div>
+
+    <!-- Recent candidates -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Recent Candidates</h2>
+        <a href="/pipeline" class="btn btn-outline btn-sm">View Pipeline</a>
+      </div>
+      <table id="recent-candidates">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>AI Score</th>
+            <th>Stage</th>
+            <th>Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AO</span> Adunni Okafor</div></td>
+            <td>Product Designer</td>
+            <td>Lagos, NG</td>
+            <td><strong>88</strong></td>
+            <td><span class="badge badge-info">Interview</span></td>
+            <td>Jun 24</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">LS</span> Lena Schmidt</div></td>
+            <td>Backend Engineer</td>
+            <td>Berlin, DE</td>
+            <td><strong>81</strong></td>
+            <td><span class="badge badge-warning">Screened</span></td>
+            <td>Jun 23</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">KM</span> Kwame Mensah</div></td>
+            <td>Backend Engineer</td>
+            <td>Accra, GH</td>
+            <td><strong>76</strong></td>
+            <td><span class="badge badge-warning">Screened</span></td>
+            <td>Jun 22</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">MD</span> Marie Dubois</div></td>
+            <td>Sales Lead</td>
+            <td>Paris, FR</td>
+            <td><strong>64</strong></td>
+            <td><span class="badge badge-success">Offer</span></td>
+            <td>Jun 18</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pending leave -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Pending Leave Requests</h2>
+        <a href="/leave" class="btn btn-outline btn-sm">View All</a>
+      </div>
+      <table id="pending-leave">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Type</th>
+            <th>Dates</th>
+            <th>Days</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">CN</span> Chioma Nwankwo</div></td>
+            <td>Annual</td>
+            <td>Jul 1 - Jul 5</td>
+            <td>5</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">JV</span> Jonas Virtanen</div></td>
+            <td>Parental</td>
+            <td>Jul 10 - Aug 7</td>
+            <td>20</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AA</span> Amara Adesanya</div></td>
+            <td>Compassionate</td>
+            <td>Jun 30 - Jul 4</td>
+            <td>5</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="mobile-nav">
+  <nav>
+    <a href="/" class="active"><span class="icon">&#9632;</span>Home</a>
+    <a href="/pipeline"><span class="icon">&#9654;</span>Pipeline</a>
+    <a href="/employees"><span class="icon">&#9787;</span>Team</a>
+    <a href="/leave"><span class="icon">&#9992;</span>Leave</a>
+  </nav>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
