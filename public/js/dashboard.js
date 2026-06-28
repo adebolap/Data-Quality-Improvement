@@ -21,7 +21,7 @@ async function loadStats() {
     cards[1].querySelector('.trend').textContent = `${applied?.count || 0} new applications`;
     cards[2].querySelector('.value').textContent = leaveStats.pending || 0;
     cards[2].querySelector('.trend').textContent = `${leaveStats.approved || 0} approved this period`;
-    cards[3].querySelector('.value').textContent = candStats.avgAiScore || '—';
+    cards[3].querySelector('.value').textContent = candStats.avgAiScore || '-';
   } catch { /* use static fallback */ }
 }
 
@@ -35,7 +35,7 @@ async function loadRecentCandidates() {
       <tr>
         <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">${initials(c.firstName, c.lastName)}</span> ${c.firstName} ${c.lastName}</div></td>
         <td>${c.jobTitle}</td>
-        <td>${c.location || '—'}</td>
+        <td>${c.location || '-'}</td>
         <td><strong>${c.aiScore ?? '—'}</strong></td>
         <td>${stageBadge(c.stage)}</td>
         <td>${formatDate(c.createdAt)}</td>

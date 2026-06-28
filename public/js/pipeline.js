@@ -48,7 +48,7 @@ async function showCandidateDetail(id) {
       <div class="detail-grid">
         <div><strong>Position:</strong> ${c.jobTitle}</div>
         <div><strong>Stage:</strong> ${stageBadge(c.stage)}</div>
-        <div><strong>Location:</strong> ${c.location || '—'}</div>
+        <div><strong>Location:</strong> ${c.location || '-'}</div>
         <div><strong>Email:</strong> ${c.email}</div>
         <div><strong>AI Score:</strong> ${c.aiScore ?? 'Not screened'}</div>
         <div><strong>Source:</strong> ${c.source}</div>
@@ -142,7 +142,7 @@ async function showScreenCVModal() {
     const skills = result.skills || {};
     resultDiv.innerHTML = `
       <div class="card" style="margin:0;padding:16px">
-        <h3>Score: ${result.score}/100 — ${result.recommendation?.toUpperCase()}</h3>
+        <h3>Score: ${result.score}/100 - ${result.recommendation?.toUpperCase()}</h3>
         <p>${result.summary || ''}</p>
         ${result.reasoning ? `<p style="font-style:italic;color:var(--gray-500)">${result.reasoning}</p>` : ''}
         ${skills.matched?.length ? `<p><strong>Matched skills:</strong> ${skills.matched.join(', ')}</p>` : ''}

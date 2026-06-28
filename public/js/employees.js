@@ -33,7 +33,7 @@ function renderEmployees(list) {
       <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">${initials(e.firstName, e.lastName)}</span> ${e.firstName} ${e.lastName}</div></td>
       <td>${e.department}</td>
       <td>${e.role}</td>
-      <td>${e.address?.city ? e.address.city + ', ' : ''}${e.address?.country || '—'}</td>
+      <td>${e.address?.city ? e.address.city + ', ' : ''}${e.address?.country || '-'}</td>
       <td><span class="badge badge-${e.status === 'active' ? 'success' : e.status === 'inactive' ? 'warning' : 'danger'}">${e.status.charAt(0).toUpperCase() + e.status.slice(1)}</span></td>
       <td>${formatDate(e.hireDate)}</td>
     </tr>`).join('');

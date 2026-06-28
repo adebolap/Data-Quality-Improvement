@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PeopleBase - HR Dashboard</title>
+  <title>Simply HR - HR Dashboard</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="shell">
   <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="logo">PeopleBase</div>
+    <div class="logo">Simply HR</div>
     <nav>
-      <a href="/" class="active"><span class="icon">&#9632;</span> Dashboard</a>
+      <a href="/dashboard" class="active"><span class="icon">&#9632;</span> Dashboard</a>
       <a href="/pipeline"><span class="icon">&#9654;</span> Pipeline</a>
       <a href="/employees"><span class="icon">&#9787;</span> Employees</a>
       <a href="/leave"><span class="icon">&#9992;</span> Leave</a>
@@ -29,26 +29,26 @@
 
     <!-- Stats row -->
     <div class="stats">
-      <div class="stat-card">
+      <a href="/employees" class="stat-card" style="text-decoration:none;color:inherit">
         <div class="label">Total Employees</div>
         <div class="value">47</div>
         <div class="trend up">+3 this month</div>
-      </div>
-      <div class="stat-card">
+      </a>
+      <a href="/pipeline" class="stat-card" style="text-decoration:none;color:inherit">
         <div class="label">Open Positions</div>
         <div class="value">5</div>
         <div class="trend">12 candidates in pipeline</div>
-      </div>
-      <div class="stat-card">
+      </a>
+      <a href="/leave" class="stat-card" style="text-decoration:none;color:inherit">
         <div class="label">Pending Leave</div>
         <div class="value">3</div>
         <div class="trend down">2 urgent</div>
-      </div>
-      <div class="stat-card">
+      </a>
+      <a href="/pipeline" class="stat-card" style="text-decoration:none;color:inherit">
         <div class="label">Avg. AI Screen Score</div>
         <div class="value">72</div>
         <div class="trend up">+5 vs last batch</div>
-      </div>
+      </a>
     </div>
 
     <!-- Recent candidates -->
@@ -159,7 +159,7 @@
 </div>
 <div class="mobile-nav">
   <nav>
-    <a href="/" class="active"><span class="icon">&#9632;</span>Home</a>
+    <a href="/dashboard" class="active"><span class="icon">&#9632;</span>Home</a>
     <a href="/pipeline"><span class="icon">&#9654;</span>Pipeline</a>
     <a href="/employees"><span class="icon">&#9787;</span>Team</a>
     <a href="/leave"><span class="icon">&#9992;</span>Leave</a>

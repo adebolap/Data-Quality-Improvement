@@ -20,7 +20,8 @@ app.use('/api/offers', require('./routes/offers'));
 app.use('/api/roles', require('./routes/roles'));
 app.use('/api/company', require('./routes/company'));
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.get('/dashboard', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));
 app.get('/pipeline', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pipeline.html')));
 app.get('/employees', (req, res) => res.sendFile(path.join(__dirname, 'public', 'employees.html')));
 app.get('/leave', (req, res) => res.sendFile(path.join(__dirname, 'public', 'leave.html')));
@@ -35,9 +36,9 @@ if (process.env.VERCEL) {
   module.exports = app;
 } else {
   connectDB().then(() => {
-    app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`Simply HR running on port ${PORT}`));
   }).catch(() => {
     console.warn('Starting without database — API routes will fail, static UI will still work');
-    app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT} (no DB)`));
+    app.listen(PORT, () => console.log(`Simply HR running on port ${PORT} (no DB)`));
   });
 }
