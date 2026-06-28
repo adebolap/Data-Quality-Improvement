@@ -5,6 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simply HR - Employees</title>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 7px 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: 8px;
+      font-size: 13px;
+      background: #fff;
+      color: var(--gray-700);
+    }
+    .filter-bar input { width: 220px; }
+    .filter-bar .view-toggle { margin-left: auto; display: flex; gap: 4px; }
+    .view-toggle button {
+      padding: 6px 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--gray-500);
+    }
+    .view-toggle button.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .birthday-strip {
+      display: none;
+      padding: 10px 20px;
+      background: #fef3c7;
+      border-bottom: 1px solid #fde68a;
+      font-size: 13px;
+      color: #92400e;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .birthday-strip.show { display: flex; }
+    .birthday-strip strong { margin-right: 4px; }
+    .birthday-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border-radius: 99px;
+      padding: 3px 12px;
+      border: 1px solid #fde68a;
+    }
+
+    .tenure-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+    .tenure-badge.senior { background: #dbeafe; color: #1e40af; }
+    .tenure-badge.veteran { background: #ede9fe; color: #5b21b6; }
+
+    /* Grouped view */
+    .dept-group { margin-bottom: 20px; }
+    .dept-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      user-select: none;
+    }
+    .dept-group-header h3 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--gray-500); }
+    .dept-group-header .dept-count {
+      background: var(--gray-200);
+      color: var(--gray-700);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+
+    /* Profile modal */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #fff;
+      border-radius: var(--radius) var(--radius) 0 0;
+      margin: -20px -20px 20px;
+    }
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .profile-header h2 { font-size: 20px; margin-bottom: 2px; }
+    .profile-header p { font-size: 13px; opacity: .85; }
+    .profile-section { margin-bottom: 20px; }
+    .profile-section h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--gray-500);
+      font-weight: 600;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+    .profile-field label { font-size: 11px; color: var(--gray-500); display: block; margin-bottom: 2px; }
+    .profile-field span { font-size: 14px; font-weight: 500; color: var(--gray-900); }
+
+    @media (max-width: 768px) {
+      .filter-bar input { width: 100%; }
+      .filter-bar { flex-direction: column; align-items: stretch; }
+      .filter-bar .view-toggle { margin-left: 0; }
+      .profile-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 <div class="shell">
@@ -22,92 +162,54 @@
   <div class="main">
     <div class="page-header">
       <h1>Employee Directory</h1>
-      <button class="btn btn-primary">+ Add Employee</button>
+      <button class="btn btn-primary" id="add-employee-btn">+ Add Employee</button>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <h2>All Employees (47)</h2>
-        <input type="text" placeholder="Search employees..." style="padding:8px 12px;border:1px solid var(--gray-300);border-radius:8px;font-size:14px;width:240px">
+    <div class="stats" style="margin-bottom:20px">
+      <div class="stat-card"><div class="label">Total</div><div class="value" id="stat-total">-</div></div>
+      <div class="stat-card"><div class="label">Active</div><div class="value" id="stat-active">-</div></div>
+      <div class="stat-card"><div class="label">Departments</div><div class="value" id="stat-depts">-</div></div>
+      <div class="stat-card"><div class="label">Countries</div><div class="value" id="stat-countries">-</div></div>
+    </div>
+
+    <div class="card" style="overflow:visible">
+      <div class="birthday-strip" id="birthday-strip">
+        <span>&#127874; Upcoming birthdays:</span>
       </div>
-      <table id="employees-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Role</th>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Hire Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AO</span> Adebayo Oluwaseun</div></td>
-            <td>Engineering</td>
-            <td>Lead Engineer</td>
-            <td>Lagos, NG</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Jan 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">LS</span> Lena Schmidt</div></td>
-            <td>Engineering</td>
-            <td>Backend Engineer</td>
-            <td>Berlin, DE</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Feb 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">CN</span> Chioma Nwankwo</div></td>
-            <td>Operations</td>
-            <td>Ops Manager</td>
-            <td>Lagos, NG</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Mar 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">MD</span> Marie Dubois</div></td>
-            <td>Sales</td>
-            <td>Sales Lead</td>
-            <td>Paris, FR</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Jun 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AA</span> Amara Adesanya</div></td>
-            <td>Finance</td>
-            <td>Accountant</td>
-            <td>Nairobi, KE</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Sep 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">JV</span> Jonas Virtanen</div></td>
-            <td>Engineering</td>
-            <td>Frontend Dev</td>
-            <td>Helsinki, FI</td>
-            <td><span class="badge badge-warning">On Leave</span></td>
-            <td>Nov 2023</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">NK</span> Nneka Kalu</div></td>
-            <td>HR</td>
-            <td>HR Associate</td>
-            <td>Lagos, NG</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Feb 2024</td>
-          </tr>
-          <tr>
-            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">PV</span> Pieter de Vries</div></td>
-            <td>Data</td>
-            <td>Data Analyst</td>
-            <td>Amsterdam, NL</td>
-            <td><span class="badge badge-success">Active</span></td>
-            <td>Apr 2024</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="filter-bar">
+        <input type="text" id="search-input" placeholder="Search name, role, email...">
+        <select id="dept-filter"><option value="">All Departments</option></select>
+        <select id="status-filter">
+          <option value="">All Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="terminated">Terminated</option>
+        </select>
+        <select id="country-filter"><option value="">All Countries</option></select>
+        <div class="view-toggle">
+          <button id="view-list" class="active" title="List view">&#9776; List</button>
+          <button id="view-grouped" title="Group by department">&#9636; Grouped</button>
+        </div>
+      </div>
+
+      <div id="employees-container">
+        <table id="employees-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Role</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Tenure</th>
+              <th>Hire Date</th>
+            </tr>
+          </thead>
+          <tbody id="employees-tbody">
+            <tr><td colspan="7" style="text-align:center;padding:40px;color:var(--gray-500)">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
