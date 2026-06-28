@@ -17,11 +17,14 @@ app.use('/api/employees', require('./routes/employees'));
 app.use('/api/candidates', require('./routes/candidates'));
 app.use('/api/leave', require('./routes/leave'));
 app.use('/api/offers', require('./routes/offers'));
+app.use('/api/roles', require('./routes/roles'));
+app.use('/api/company', require('./routes/company'));
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));
 app.get('/pipeline', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pipeline.html')));
 app.get('/employees', (req, res) => res.sendFile(path.join(__dirname, 'public', 'employees.html')));
 app.get('/leave', (req, res) => res.sendFile(path.join(__dirname, 'public', 'leave.html')));
+app.get('/roles', (req, res) => res.sendFile(path.join(__dirname, 'public', 'roles.html')));
 
 app.use(errorHandler);
 

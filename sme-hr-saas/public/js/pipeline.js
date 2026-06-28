@@ -116,22 +116,41 @@ function showAddCandidateModal() {
   });
 }
 
-function showScreenCVModal() {
+async function showScreenCVModal() {
+  let rolesOptions = '<option value="">-- No template (manual) --</option>';
+  try {
+    const { roles } = await API.get('/api/roles?active=true');
+    rolesOptions += roles.map(r => `<option value="${r._id}">${r.title} (${r.department})</option>`).join('');
+  } catch { /* no roles available */ }
+
   openModal('Screen CV with AI', `
-    <div class="form-group"><label>Job Title</label><input name="jobTitle" required placeholder="e.g. Backend Engineer"></div>
-    <div class="form-group"><label>Requirements (optional)</label><textarea name="jobRequirements" rows="2" placeholder="e.g. 3+ years Node.js, MongoDB experience"></textarea></div>
+    <div class="form-group"><label>Role Template</label>
+      <select name="roleId" onchange="document.querySelector('[name=jobTitle]').disabled=!!this.value;if(this.value)document.querySelector('[name=jobTitle]').value=''">
+        ${rolesOptions}
+      </select>
+    </div>
+    <div class="form-group"><label>Job Title (if no template)</label><input name="jobTitle" placeholder="e.g. Backend Engineer"></div>
+    <div class="form-group"><label>Additional requirements (optional)</label><textarea name="jobRequirements" rows="2" placeholder="e.g. Must speak Dutch fluently"></textarea></div>
     <div class="form-group"><label>Paste CV Text</label><textarea name="cvText" rows="8" required placeholder="Paste the candidate's CV here..."></textarea></div>
     <div id="screen-result" style="display:none;margin-top:12px"></div>
   `, async (data) => {
+    if (!data.roleId && !data.jobTitle) throw new Error('Select a role template or enter a job title');
     const resultDiv = document.querySelector('#screen-result');
     resultDiv.style.display = 'block';
     resultDiv.innerHTML = '<p>Screening with AI...</p>';
     const result = await API.post('/api/ai/screen-cv', data);
+    const skills = result.skills || {};
     resultDiv.innerHTML = `
       <div class="card" style="margin:0;padding:16px">
         <h3>Score: ${result.score}/100 — ${result.recommendation?.toUpperCase()}</h3>
-        <p>${result.summary}</p>
-        ${result.skills?.length ? `<p><strong>Skills:</strong> ${result.skills.join(', ')}</p>` : ''}
+        <p>${result.summary || ''}</p>
+        ${result.reasoning ? `<p style="font-style:italic;color:var(--gray-500)">${result.reasoning}</p>` : ''}
+        ${skills.matched?.length ? `<p><strong>Matched skills:</strong> ${skills.matched.join(', ')}</p>` : ''}
+        ${skills.missing?.length ? `<p style="color:var(--danger)"><strong>Missing:</strong> ${skills.missing.join(', ')}</p>` : ''}
+        ${skills.bonus?.length ? `<p style="color:var(--success)"><strong>Bonus:</strong> ${skills.bonus.join(', ')}</p>` : ''}
+        ${result.experience ? `<p><strong>Experience:</strong> ~${result.experience.years} years (${result.experience.relevance} relevance)</p>` : ''}
+        ${result.languageMatch ? `<p><strong>Language:</strong> ${result.languageMatch.detected?.join(', ') || '?'} — ${result.languageMatch.match ? 'Match' : 'Mismatch'}</p>` : ''}
+        ${result.strengths?.length ? `<p><strong>Strengths:</strong> ${result.strengths.join(', ')}</p>` : ''}
         ${result.redFlags?.length ? `<p style="color:var(--danger)"><strong>Red flags:</strong> ${result.redFlags.join(', ')}</p>` : ''}
       </div>`;
     throw new Error('__keep_open__');
