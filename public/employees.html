@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeopleBase - Employees</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">PeopleBase</div>
+    <nav>
+      <a href="/"><span class="icon">&#9632;</span> Dashboard</a>
+      <a href="/pipeline"><span class="icon">&#9654;</span> Pipeline</a>
+      <a href="/employees" class="active"><span class="icon">&#9787;</span> Employees</a>
+      <a href="/leave"><span class="icon">&#9992;</span> Leave</a>
+      <a href="/roles"><span class="icon">&#9998;</span> Roles</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="page-header">
+      <h1>Employee Directory</h1>
+      <button class="btn btn-primary">+ Add Employee</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>All Employees (47)</h2>
+        <input type="text" placeholder="Search employees..." style="padding:8px 12px;border:1px solid var(--gray-300);border-radius:8px;font-size:14px;width:240px">
+      </div>
+      <table id="employees-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Hire Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AO</span> Adebayo Oluwaseun</div></td>
+            <td>Engineering</td>
+            <td>Lead Engineer</td>
+            <td>Lagos, NG</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Jan 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">LS</span> Lena Schmidt</div></td>
+            <td>Engineering</td>
+            <td>Backend Engineer</td>
+            <td>Berlin, DE</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Feb 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">CN</span> Chioma Nwankwo</div></td>
+            <td>Operations</td>
+            <td>Ops Manager</td>
+            <td>Lagos, NG</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Mar 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">MD</span> Marie Dubois</div></td>
+            <td>Sales</td>
+            <td>Sales Lead</td>
+            <td>Paris, FR</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Jun 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AA</span> Amara Adesanya</div></td>
+            <td>Finance</td>
+            <td>Accountant</td>
+            <td>Nairobi, KE</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Sep 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">JV</span> Jonas Virtanen</div></td>
+            <td>Engineering</td>
+            <td>Frontend Dev</td>
+            <td>Helsinki, FI</td>
+            <td><span class="badge badge-warning">On Leave</span></td>
+            <td>Nov 2023</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">NK</span> Nneka Kalu</div></td>
+            <td>HR</td>
+            <td>HR Associate</td>
+            <td>Lagos, NG</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Feb 2024</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">PV</span> Pieter de Vries</div></td>
+            <td>Data</td>
+            <td>Data Analyst</td>
+            <td>Amsterdam, NL</td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td>Apr 2024</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="mobile-nav">
+  <nav>
+    <a href="/"><span class="icon">&#9632;</span>Home</a>
+    <a href="/pipeline"><span class="icon">&#9654;</span>Pipeline</a>
+    <a href="/employees" class="active"><span class="icon">&#9787;</span>Team</a>
+    <a href="/leave"><span class="icon">&#9992;</span>Leave</a>
+  </nav>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/employees.js"></script>
+</body>
+</html>

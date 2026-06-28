@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeopleBase - Leave Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">PeopleBase</div>
+    <nav>
+      <a href="/"><span class="icon">&#9632;</span> Dashboard</a>
+      <a href="/pipeline"><span class="icon">&#9654;</span> Pipeline</a>
+      <a href="/employees"><span class="icon">&#9787;</span> Employees</a>
+      <a href="/leave" class="active"><span class="icon">&#9992;</span> Leave</a>
+      <a href="/roles"><span class="icon">&#9998;</span> Roles</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="page-header">
+      <h1>Leave Management</h1>
+      <button class="btn btn-primary">+ Request Leave</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="label">Annual Leave Used</div>
+        <div class="value">8 / 25</div>
+        <div class="trend">17 days remaining</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Sick Leave Used</div>
+        <div class="value">2 / 10</div>
+        <div class="trend">8 days remaining</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Team On Leave Today</div>
+        <div class="value">1</div>
+        <div class="trend">Lena Schmidt (Berlin)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Leave Requests</h2>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline btn-sm" style="background:var(--primary-light);color:var(--primary);border-color:var(--primary)">All</button>
+          <button class="btn btn-outline btn-sm">Pending</button>
+          <button class="btn btn-outline btn-sm">Approved</button>
+          <button class="btn btn-outline btn-sm">Rejected</button>
+        </div>
+      </div>
+      <table id="leave-table">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Days</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">CN</span> Chioma Nwankwo</div></td>
+            <td>Annual</td>
+            <td>Jul 1</td>
+            <td>Jul 5</td>
+            <td>5</td>
+            <td><span class="badge badge-warning">Pending</span></td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">JV</span> Jonas Virtanen</div></td>
+            <td>Parental</td>
+            <td>Jul 10</td>
+            <td>Aug 7</td>
+            <td>20</td>
+            <td><span class="badge badge-warning">Pending</span></td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">AA</span> Amara Adesanya</div></td>
+            <td>Compassionate</td>
+            <td>Jun 30</td>
+            <td>Jul 4</td>
+            <td>5</td>
+            <td><span class="badge badge-warning">Pending</span></td>
+            <td>
+              <button class="btn btn-primary btn-sm">Approve</button>
+              <button class="btn btn-outline btn-sm">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">LS</span> Lena Schmidt</div></td>
+            <td>Annual</td>
+            <td>Jun 23</td>
+            <td>Jun 27</td>
+            <td>5</td>
+            <td><span class="badge badge-success">Approved</span></td>
+            <td><span style="color:var(--gray-500);font-size:13px">Approved Jun 20</span></td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:10px"><span class="avatar">NK</span> Nneka Kalu</div></td>
+            <td>Maternity</td>
+            <td>Aug 1</td>
+            <td>Oct 31</td>
+            <td>66</td>
+            <td><span class="badge badge-success">Approved</span></td>
+            <td><span style="color:var(--gray-500);font-size:13px">Approved Jun 15</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="mobile-nav">
+  <nav>
+    <a href="/"><span class="icon">&#9632;</span>Home</a>
+    <a href="/pipeline"><span class="icon">&#9654;</span>Pipeline</a>
+    <a href="/employees"><span class="icon">&#9787;</span>Team</a>
+    <a href="/leave" class="active"><span class="icon">&#9992;</span>Leave</a>
+  </nav>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/leave.js"></script>
+</body>
+</html>
