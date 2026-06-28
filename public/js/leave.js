@@ -35,6 +35,7 @@ async function loadLeaveRequests() {
   try {
     const url = currentFilter ? `/api/leave?status=${currentFilter}` : '/api/leave';
     const { requests } = await API.get(url);
+    if (!requests || requests.length === 0) return; // keep static fallback rows
     const tbody = document.querySelector('#leave-table tbody');
     if (!tbody) return;
     tbody.innerHTML = requests.map(r => {
@@ -74,6 +75,27 @@ async function rejectLeave(id) {
     loadLeaveRequests();
     loadLeaveStats();
   } catch (err) { toast(err.message, 'error'); }
+}
+
+function demoApprove(key) {
+  const badge = document.getElementById(`status-${key}`);
+  const cell = document.getElementById(`action-${key}`);
+  if (!badge || !cell) return;
+  badge.className = 'badge badge-success';
+  badge.textContent = 'Approved';
+  cell.innerHTML = `<span style="color:var(--gray-500);font-size:13px">Approved just now</span>`;
+  toast('Leave approved');
+}
+
+function demoReject(key) {
+  const reason = prompt('Rejection reason (optional):');
+  const badge = document.getElementById(`status-${key}`);
+  const cell = document.getElementById(`action-${key}`);
+  if (!badge || !cell) return;
+  badge.className = 'badge badge-danger';
+  badge.textContent = 'Rejected';
+  cell.innerHTML = `<span style="color:var(--gray-500);font-size:13px">Rejected just now</span>`;
+  toast('Leave rejected');
 }
 
 async function showRequestLeaveModal() {
