@@ -30,9 +30,14 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT}`));
-}).catch(() => {
-  console.warn('Starting without database — API routes will fail, static UI will still work');
-  app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT} (no DB)`));
-});
+if (process.env.VERCEL) {
+  connectDB().catch(() => console.warn('DB unavailable — static UI only'));
+  module.exports = app;
+} else {
+  connectDB().then(() => {
+    app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT}`));
+  }).catch(() => {
+    console.warn('Starting without database — API routes will fail, static UI will still work');
+    app.listen(PORT, () => console.log(`PeopleBase running on port ${PORT} (no DB)`));
+  });
+}
