@@ -7,6 +7,7 @@ const candidateSchema = new mongoose.Schema({
   phone: { type: String },
   jobTitle: { type: String, required: true },
   department: { type: String },
+  roleTemplate: { type: mongoose.Schema.Types.ObjectId, ref: 'RoleTemplate' },
   stage: {
     type: String,
     enum: ['applied', 'screened', 'interview', 'offer', 'hired', 'rejected'],
