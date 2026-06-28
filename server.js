@@ -26,6 +26,9 @@ app.get('/pipeline', (req, res) => res.sendFile(path.join(__dirname, 'public', '
 app.get('/employees', (req, res) => res.sendFile(path.join(__dirname, 'public', 'employees.html')));
 app.get('/leave', (req, res) => res.sendFile(path.join(__dirname, 'public', 'leave.html')));
 app.get('/roles', (req, res) => res.sendFile(path.join(__dirname, 'public', 'roles.html')));
+app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, 'public', 'privacy.html')));
+app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, 'public', 'terms.html')));
+app.get('/security', (req, res) => res.sendFile(path.join(__dirname, 'public', 'security.html')));
 
 app.use(errorHandler);
 

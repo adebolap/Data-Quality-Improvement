@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simply HR - The Anti-Workday for Growing Teams</title>
+  <meta name="description" content="AI-powered HR platform for SMEs in Africa and Europe. Candidate pipeline, leave management, employee directory. Free to start, no consultants needed.">
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .topbar {
@@ -19,14 +20,14 @@
     }
     .topbar .logo { font-size: 20px; font-weight: 700; letter-spacing: -.5px; color: var(--gray-900); text-decoration: none; }
     .topbar .logo span { color: var(--primary); }
-    .topbar nav { display: flex; gap: 24px; align-items: center; }
+    .topbar nav { display: flex; gap: 20px; align-items: center; }
     .topbar nav a { color: var(--gray-500); text-decoration: none; font-size: 14px; font-weight: 500; }
     .topbar nav a:hover { color: var(--gray-900); }
     .topbar .btn { padding: 8px 20px; }
 
     .hero {
       text-align: center;
-      padding: 80px 24px 48px;
+      padding: 72px 24px 48px;
       max-width: 820px;
       margin: 0 auto;
     }
@@ -40,65 +41,48 @@
       color: #92400e;
       margin-bottom: 20px;
     }
-    .hero h1 {
-      font-size: 52px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-      line-height: 1.08;
-    }
+    .hero h1 { font-size: 52px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.08; }
     .hero h1 span { color: var(--primary); }
-    .hero p {
-      font-size: 19px;
-      color: var(--gray-500);
-      max-width: 580px;
-      margin: 0 auto 36px;
-      line-height: 1.6;
-    }
+    .hero p { font-size: 19px; color: var(--gray-500); max-width: 580px; margin: 0 auto 36px; line-height: 1.6; }
     .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .hero-actions .btn { padding: 14px 32px; font-size: 16px; border-radius: 10px; font-weight: 600; }
 
     .proof-bar {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      padding: 32px 24px;
+      gap: 48px;
+      padding: 28px 24px;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      background: #fff;
       flex-wrap: wrap;
     }
-    .proof-item {
-      text-align: center;
-    }
-    .proof-item .num { font-size: 28px; font-weight: 800; color: var(--gray-900); }
-    .proof-item .desc { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+    .proof-item { text-align: center; }
+    .proof-item .num { font-size: 26px; font-weight: 800; color: var(--gray-900); }
+    .proof-item .desc { font-size: 12px; color: var(--gray-500); margin-top: 2px; text-transform: uppercase; letter-spacing: .05em; }
 
-    .vs-section {
-      max-width: 900px;
-      margin: 40px auto 60px;
+    .section-label { text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+    .section-title { text-align: center; font-size: 30px; font-weight: 700; margin-bottom: 12px; letter-spacing: -.5px; }
+    .section-sub { text-align: center; color: var(--gray-500); font-size: 16px; max-width: 520px; margin: 0 auto 40px; line-height: 1.6; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      max-width: 960px;
+      margin: 0 auto 60px;
       padding: 0 24px;
     }
-    .vs-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    .vs-table th {
-      padding: 16px 20px;
-      text-align: left;
-      font-size: 14px;
-      font-weight: 600;
-      border-bottom: 2px solid var(--gray-200);
-    }
-    .vs-table th:first-child { color: var(--gray-500); }
+    .pain-card { padding: 20px; border-radius: var(--radius); border: 1px solid var(--gray-200); background: #fff; }
+    .pain-card .old { color: var(--danger); font-size: 14px; margin-bottom: 8px; text-decoration: line-through; opacity: .8; }
+    .pain-card .new { color: var(--success); font-size: 14px; font-weight: 600; }
+
+    .vs-section { max-width: 880px; margin: 0 auto 60px; padding: 0 24px; }
+    .vs-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+    .vs-table th { padding: 14px 18px; text-align: left; font-size: 13px; font-weight: 600; border-bottom: 2px solid var(--gray-200); }
     .vs-table th:nth-child(2) { color: var(--primary); background: var(--primary-light); }
-    .vs-table th:nth-child(3) { color: var(--gray-500); }
-    .vs-table td {
-      padding: 14px 20px;
-      font-size: 14px;
-      border-bottom: 1px solid var(--gray-100);
-    }
+    .vs-table th:first-child, .vs-table th:nth-child(3) { color: var(--gray-500); }
+    .vs-table td { padding: 12px 18px; font-size: 13px; border-bottom: 1px solid var(--gray-100); }
     .vs-table td:nth-child(2) { background: #f8faff; font-weight: 500; }
     .vs-table .check { color: var(--success); font-weight: 700; }
     .vs-table .x { color: var(--danger); }
@@ -107,7 +91,7 @@
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 18px;
       max-width: 1100px;
       margin: 0 auto 60px;
       padding: 0 24px;
@@ -115,106 +99,106 @@
     .feature-card {
       background: #fff;
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 26px;
       box-shadow: var(--shadow);
       transition: box-shadow .2s, transform .2s;
       text-decoration: none;
       color: inherit;
       display: block;
     }
-    .feature-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-    .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-    .feature-card p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
-    .feature-card .tag-row { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
-    .feature-card .tag-row span {
-      padding: 3px 10px;
-      border-radius: 99px;
-      font-size: 11px;
-      font-weight: 500;
-      background: var(--gray-100);
-      color: var(--gray-700);
-    }
+    .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .feature-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .feature-card p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+    .feature-card .tag-row { margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap; }
+    .feature-card .tag-row span { padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 500; background: var(--gray-100); color: var(--gray-700); }
 
-    .section-label {
-      text-align: center;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 8px;
+    .security-section {
+      background: var(--gray-900);
+      color: #fff;
+      padding: 56px 24px;
     }
-    .section-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -.5px;
-    }
-    .section-sub {
-      text-align: center;
-      color: var(--gray-500);
-      font-size: 16px;
-      max-width: 520px;
-      margin: 0 auto 40px;
-    }
-
-    .pain-grid {
+    .security-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      max-width: 900px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 32px auto 0;
+    }
+    .security-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #fff; }
+    .security-item p { font-size: 13px; color: var(--gray-300); line-height: 1.5; }
+    .security-item .icon { font-size: 20px; margin-bottom: 10px; }
+
+    .ai-notice {
+      max-width: 880px;
       margin: 0 auto 60px;
       padding: 0 24px;
     }
-    .pain-card {
-      padding: 24px;
+    .ai-notice-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
       border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
-      background: #fff;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
     }
-    .pain-card .old { color: var(--danger); font-size: 14px; margin-bottom: 8px; text-decoration: line-through; }
-    .pain-card .new { color: var(--success); font-size: 14px; font-weight: 600; }
+    .ai-notice-box .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .ai-notice-box h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #92400e; }
+    .ai-notice-box p { font-size: 13px; color: #78350f; line-height: 1.5; }
 
-    .cta-section {
-      text-align: center;
-      padding: 60px 24px 80px;
-      background: var(--gray-900);
-      color: #fff;
+    .geo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
     }
-    .cta-section h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; letter-spacing: -.5px; }
-    .cta-section p { color: var(--gray-300); font-size: 16px; margin-bottom: 28px; }
-    .cta-section .btn-primary { padding: 14px 36px; font-size: 16px; border-radius: 10px; }
+    .geo-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .geo-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+    .geo-card ul { list-style: none; padding: 0; margin: 0; }
+    .geo-card li { font-size: 13px; color: var(--gray-700); padding: 5px 0; border-bottom: 1px solid var(--gray-100); display: flex; gap: 8px; align-items: center; }
+    .geo-card li:last-child { border-bottom: none; }
+    .geo-card li::before { content: ""; color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+    .cta-section { text-align: center; padding: 60px 24px; background: var(--primary); color: #fff; }
+    .cta-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.5px; }
+    .cta-section p { color: rgba(255,255,255,.8); font-size: 16px; margin-bottom: 28px; }
+    .cta-section .btn-white { background: #fff; color: var(--primary); padding: 14px 36px; font-size: 16px; border-radius: 10px; font-weight: 700; text-decoration: none; display: inline-block; }
+    .cta-section .btn-white:hover { background: var(--gray-100); }
 
     .footer {
-      text-align: center;
-      padding: 32px 24px;
-      color: var(--gray-500);
-      font-size: 13px;
+      padding: 32px 24px 24px;
       border-top: 1px solid var(--gray-200);
+      max-width: 960px;
+      margin: 0 auto;
     }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 24px; }
+    .footer-brand .logo { font-size: 18px; font-weight: 700; color: var(--gray-900); }
+    .footer-brand .logo span { color: var(--primary); }
+    .footer-brand p { font-size: 13px; color: var(--gray-500); margin-top: 6px; max-width: 260px; line-height: 1.5; }
+    .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+    .footer-col h5 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--gray-500); margin-bottom: 10px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--gray-700); text-decoration: none; margin-bottom: 7px; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom { border-top: 1px solid var(--gray-200); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; color: var(--gray-500); }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 32px; }
       .hero p { font-size: 16px; }
       .topbar { padding: 12px 16px; }
       .topbar nav a:not(.btn) { display: none; }
-      .proof-bar { gap: 24px; }
-      .vs-table { font-size: 13px; }
-      .vs-table th, .vs-table td { padding: 10px 12px; }
+      .proof-bar { gap: 20px; }
+      .vs-table th, .vs-table td { padding: 10px 10px; font-size: 12px; }
+      .geo-grid { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; }
+      .footer-links { gap: 24px; }
     }
   </style>
 </head>
@@ -225,79 +209,54 @@
   <nav>
     <a href="/pipeline">Pipeline</a>
     <a href="/employees">Employees</a>
+    <a href="/leave">Leave</a>
     <a href="/roles">Roles</a>
-    <a href="/dashboard" class="btn btn-primary">Open Dashboard</a>
+    <a href="/dashboard" class="btn btn-primary">Open App</a>
   </nav>
 </div>
 
-<div class="hero">
-  <div class="hero-badge">No contracts. No consultants. No nonsense.</div>
-  <h1>The HR platform <span>Workday hopes you never find</span></h1>
-  <p>Enterprise HR tools cost six figures and take six months. Simply HR gives growing teams in Africa and Europe everything they need - in minutes, not months.</p>
-  <div class="hero-actions">
-    <a href="/dashboard" class="btn btn-primary">Start Free</a>
-    <a href="#compare" class="btn btn-outline">See the Difference</a>
+<!-- Hero -->
+<div style="background:#fff;border-bottom:1px solid var(--gray-200)">
+  <div class="hero">
+    <div class="hero-badge">No contracts. No consultants. No nonsense.</div>
+    <h1>The HR platform <span>Workday hopes you never find</span></h1>
+    <p>Enterprise HR tools cost six figures and take six months. Simply HR gives growing teams in Africa and Europe everything they need - in minutes, not months.</p>
+    <div class="hero-actions">
+      <a href="/dashboard" class="btn btn-primary">Start Free</a>
+      <a href="#compare" class="btn btn-outline">See How We Compare</a>
+    </div>
   </div>
-</div>
 
-<div class="proof-bar">
-  <div class="proof-item">
-    <div class="num">30s</div>
-    <div class="desc">Setup time</div>
-  </div>
-  <div class="proof-item">
-    <div class="num">0</div>
-    <div class="desc">Implementation fee</div>
-  </div>
-  <div class="proof-item">
-    <div class="num">AI</div>
-    <div class="desc">CV screening built in</div>
-  </div>
-  <div class="proof-item">
-    <div class="num">EU+AF</div>
-    <div class="desc">Multi-region ready</div>
+  <div class="proof-bar">
+    <div class="proof-item"><div class="num">0</div><div class="desc">Implementation fee</div></div>
+    <div class="proof-item"><div class="num">30s</div><div class="desc">To go live</div></div>
+    <div class="proof-item"><div class="num">AI</div><div class="desc">CV screening built in</div></div>
+    <div class="proof-item"><div class="num">GDPR</div><div class="desc">Compliant by default</div></div>
+    <div class="proof-item"><div class="num">EU+AF</div><div class="desc">Multi-region native</div></div>
   </div>
 </div>
 
 <!-- Pain points -->
-<div style="padding:40px 24px 20px">
+<div style="padding:56px 24px 20px">
   <p class="section-label">The old way is broken</p>
   <h2 class="section-title">Stop overpaying for HR software</h2>
-  <p class="section-sub">Enterprise tools were built for 10,000-person companies. You have 10-200. You deserve better.</p>
+  <p class="section-sub">Enterprise tools were built for 10,000-person companies by 10,000-person vendors. You have 10-200 people. You deserve better.</p>
 </div>
 
 <div class="pain-grid">
-  <div class="pain-card">
-    <div class="old">6-month implementation with consultants</div>
-    <div class="new">Live in 30 seconds, no training needed</div>
-  </div>
-  <div class="pain-card">
-    <div class="old">$50-150/employee/year licensing</div>
-    <div class="new">Free tier covers your entire team</div>
-  </div>
-  <div class="pain-card">
-    <div class="old">Screening CVs manually for hours</div>
-    <div class="new">AI scores and ranks in seconds</div>
-  </div>
-  <div class="pain-card">
-    <div class="old">US-centric, bolt-on EU compliance</div>
-    <div class="new">Belgian law, GDPR, and multi-currency native</div>
-  </div>
-  <div class="pain-card">
-    <div class="old">Separate tools for ATS + HRIS + Leave</div>
-    <div class="new">Pipeline + Directory + Leave in one place</div>
-  </div>
-  <div class="pain-card">
-    <div class="old">Pay extra for AI add-ons</div>
-    <div class="new">AI screening, scoring, and generation included</div>
-  </div>
+  <div class="pain-card"><div class="old">6-month implementation with consultants</div><div class="new">Live in 30 seconds, no training needed</div></div>
+  <div class="pain-card"><div class="old">$50-150/employee/year licensing</div><div class="new">Free tier covers your entire team</div></div>
+  <div class="pain-card"><div class="old">Screening CVs manually for hours</div><div class="new">AI scores and ranks CVs in seconds</div></div>
+  <div class="pain-card"><div class="old">US-centric, bolt-on EU compliance</div><div class="new">Belgian law, GDPR, and multi-currency native</div></div>
+  <div class="pain-card"><div class="old">Separate tools for ATS + HRIS + Leave</div><div class="new">Pipeline, directory, and leave in one place</div></div>
+  <div class="pain-card"><div class="old">Pay extra for AI add-ons</div><div class="new">AI screening and generation included, free</div></div>
 </div>
 
-<!-- Comparison table -->
+<!-- Comparison -->
 <div class="vs-section" id="compare">
   <p class="section-label">Head to head</p>
   <h2 class="section-title">Simply HR vs. the incumbents</h2>
-  <p class="section-sub">Built different, priced different, shipped different.</p>
+  <p class="section-sub">Built different. Priced different. Shipped different.</p>
 
   <table class="vs-table">
     <thead>
@@ -308,120 +267,191 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Time to go live</td>
-        <td class="check">30 seconds</td>
-        <td class="x">3-6 months</td>
-      </tr>
-      <tr>
-        <td>Implementation cost</td>
-        <td class="check">$0</td>
-        <td class="x">$50k-$500k</td>
-      </tr>
-      <tr>
-        <td>AI CV screening</td>
-        <td class="check">Built in, free</td>
-        <td class="meh">Paid add-on or missing</td>
-      </tr>
-      <tr>
-        <td>Role-specific AI scoring</td>
-        <td class="check">Weighted templates with deal-breakers</td>
-        <td class="x">Generic keyword match</td>
-      </tr>
-      <tr>
-        <td>Belgian compliance</td>
-        <td class="check">Joint committees, ADV, work regimes</td>
-        <td class="meh">Manual configuration</td>
-      </tr>
-      <tr>
-        <td>Multi-language AI output</td>
-        <td class="check">EN / NL / FR / DE</td>
-        <td class="meh">English only or extra cost</td>
-      </tr>
-      <tr>
-        <td>Africa + EU multi-currency</td>
-        <td class="check">EUR, NGN, KES, GHS, GBP, USD</td>
-        <td class="meh">EU-only or US-centric</td>
-      </tr>
-      <tr>
-        <td>Drag-and-drop pipeline</td>
-        <td class="check">Kanban with live AI scores</td>
-        <td class="meh">Basic list view</td>
-      </tr>
-      <tr>
-        <td>GDPR consent tracking</td>
-        <td class="check">Built in</td>
-        <td class="check">Built in</td>
-      </tr>
-      <tr>
-        <td>Needs IT team to manage</td>
-        <td class="check">No</td>
-        <td class="x">Dedicated admin required</td>
-      </tr>
-      <tr>
-        <td>Mobile ready</td>
-        <td class="check">Responsive, works everywhere</td>
-        <td class="meh">Separate mobile app</td>
-      </tr>
+      <tr><td>Time to go live</td><td class="check">30 seconds</td><td class="x">3-6 months</td></tr>
+      <tr><td>Implementation cost</td><td class="check">$0</td><td class="x">$50k-$500k</td></tr>
+      <tr><td>AI CV screening</td><td class="check">Built in, free</td><td class="meh">Paid add-on or missing</td></tr>
+      <tr><td>Role-specific AI scoring</td><td class="check">Weighted templates + deal-breakers</td><td class="x">Generic keyword match</td></tr>
+      <tr><td>Belgian employment law</td><td class="check">Joint committees, ADV days, work regimes</td><td class="meh">Manual configuration</td></tr>
+      <tr><td>African payroll currencies</td><td class="check">NGN, KES, GHS native</td><td class="x">USD/EUR only</td></tr>
+      <tr><td>Multi-language AI output</td><td class="check">EN / NL / FR / DE</td><td class="meh">English only or extra cost</td></tr>
+      <tr><td>GDPR consent tracking</td><td class="check">Built in, field level</td><td class="check">Built in</td></tr>
+      <tr><td>EU AI Act transparency</td><td class="check">Disclosed, human review recommended</td><td class="x">Often undisclosed</td></tr>
+      <tr><td>Drag-and-drop pipeline</td><td class="check">Kanban with live AI scores</td><td class="meh">Basic list view</td></tr>
+      <tr><td>Needs IT team to manage</td><td class="check">No</td><td class="x">Dedicated admin required</td></tr>
     </tbody>
   </table>
 </div>
 
 <!-- Features -->
-<div style="padding:40px 24px 20px">
+<div style="padding:0 24px 20px">
   <p class="section-label">What you get</p>
   <h2 class="section-title">Six modules. Zero bloat.</h2>
-  <p class="section-sub">Every feature earns its place. No shelfware.</p>
+  <p class="section-sub">Every feature earns its place. No shelfware, no upsells, no locked features behind enterprise tiers.</p>
 </div>
 
 <div class="features">
   <a href="/pipeline" class="feature-card">
     <div class="feature-icon" style="background:#dbeafe;color:#2563eb">&#9654;</div>
     <h3>Candidate Pipeline</h3>
-    <p>Drag-and-drop Kanban board. Track every candidate from application to hire with real-time AI scores on every card.</p>
-    <div class="tag-row"><span>Kanban</span><span>Drag & Drop</span><span>Notes</span></div>
+    <p>Drag-and-drop Kanban. Track every candidate from application to hire with real-time AI scores on every card.</p>
+    <div class="tag-row"><span>Kanban</span><span>Drag &amp; Drop</span><span>Notes</span><span>Stage history</span></div>
   </a>
   <a href="/pipeline" class="feature-card">
     <div class="feature-icon" style="background:#fef3c7;color:#d97706">&#9733;</div>
     <h3>AI CV Screening</h3>
-    <p>Paste a CV, get a score in seconds. Weighted skill matching, experience analysis, red flags, and deal-breaker enforcement.</p>
-    <div class="tag-row"><span>AI Scoring</span><span>Skill Match</span><span>Red Flags</span></div>
+    <p>Paste a CV, get a weighted score in seconds. Skill matching, experience analysis, red flags, and deal-breaker enforcement.</p>
+    <div class="tag-row"><span>Weighted scoring</span><span>Skill match</span><span>Red flags</span><span>Role templates</span></div>
   </a>
   <a href="/employees" class="feature-card">
     <div class="feature-icon" style="background:#dcfce7;color:#16a34a">&#9787;</div>
     <h3>Employee Directory</h3>
-    <p>Searchable, filterable directory with department, location, salary, and status tracking across every region you operate in.</p>
-    <div class="tag-row"><span>Search</span><span>Multi-region</span><span>GDPR</span></div>
+    <p>Searchable, filterable directory with department grouping, tenure tracking, birthday alerts, and full profile views.</p>
+    <div class="tag-row"><span>Grouped view</span><span>Tenure</span><span>Birthdays</span><span>GDPR</span></div>
   </a>
   <a href="/leave" class="feature-card">
     <div class="feature-icon" style="background:#fce7f3;color:#db2777">&#9992;</div>
     <h3>Leave Management</h3>
-    <p>10 leave types. One-click approve/reject. Automatic day calculation. Built for EU parental leave, Belgian ADV days, and more.</p>
-    <div class="tag-row"><span>10 Types</span><span>Approve/Reject</span><span>EU Compliant</span></div>
+    <p>10 leave types. One-click approve/reject. Day auto-calculation. Built for EU parental leave, Belgian ADV days, and African statutory leave.</p>
+    <div class="tag-row"><span>10 types</span><span>Approve/Reject</span><span>EU compliant</span></div>
   </a>
   <a href="/roles" class="feature-card">
     <div class="feature-icon" style="background:#ede9fe;color:#7c3aed">&#9998;</div>
     <h3>Role Templates</h3>
-    <p>Define a role once - skills, weights, deal-breakers. AI uses it for every screening, job description, and offer letter.</p>
-    <div class="tag-row"><span>Weighted Scoring</span><span>Deal-breakers</span><span>AI Powered</span></div>
+    <p>Define a role once - skills, weights, deal-breakers, language. AI uses it for every screening, job description, and offer letter.</p>
+    <div class="tag-row"><span>Weighted scoring</span><span>Deal-breakers</span><span>Multi-language</span></div>
   </a>
   <a href="/dashboard" class="feature-card">
     <div class="feature-icon" style="background:#e0f2fe;color:#0284c7">&#9632;</div>
     <h3>Live Dashboard</h3>
-    <p>Headcount, pipeline health, pending leave, AI scores - everything your HR lead needs on one screen, updated in real time.</p>
-    <div class="tag-row"><span>Real-time</span><span>Clickable</span><span>Overview</span></div>
+    <p>Headcount, pipeline health, pending leave, and AI scores - everything your HR lead needs on one screen, live.</p>
+    <div class="tag-row"><span>Real-time</span><span>Clickable cards</span><span>Overview</span></div>
   </a>
+</div>
+
+<!-- Geo coverage -->
+<div style="padding:0 24px 20px">
+  <p class="section-label">Built for your region</p>
+  <h2 class="section-title">Africa and Europe, natively</h2>
+  <p class="section-sub">Not bolted on. Not an afterthought. Both regions are first-class citizens.</p>
+</div>
+
+<div class="geo-grid">
+  <div class="geo-card">
+    <h3>&#127758; Europe</h3>
+    <ul>
+      <li>Belgian joint committees (paritaire comités)</li>
+      <li>ADV days and 4/5 work regimes</li>
+      <li>Permanent, fixed-term, interim, student contracts</li>
+      <li>GDPR consent tracking with withdrawal date</li>
+      <li>Multi-language output: EN, NL, FR, DE</li>
+      <li>EUR currency native</li>
+      <li>Work permit expiry alerts</li>
+    </ul>
+  </div>
+  <div class="geo-card">
+    <h3>&#127757; Africa</h3>
+    <ul>
+      <li>NGN (Nigeria), KES (Kenya), GHS (Ghana) native</li>
+      <li>Multi-country team management</li>
+      <li>Lagos, Nairobi, Accra timezone support</li>
+      <li>Compassionate and statutory leave types</li>
+      <li>Right-to-work tracking per country</li>
+      <li>Candidate sourcing by location and region</li>
+      <li>Cross-border team visibility on one dashboard</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EU AI Act notice -->
+<div class="ai-notice">
+  <div class="ai-notice-box">
+    <div class="icon">&#9888;&#65039;</div>
+    <div>
+      <h4>EU AI Act Transparency Notice</h4>
+      <p>Simply HR uses AI for CV screening and scoring. Under the EU AI Act, automated candidate screening is classified as high-risk AI. We recommend human review of all AI-generated scores before making hiring decisions. Candidates screened using Simply HR should be informed that AI was used in the process. <a href="/security" style="color:#92400e;font-weight:600">Read our AI data handling policy.</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Security section -->
+<div class="security-section">
+  <p class="section-label" style="color:var(--gray-300)">Security &amp; Privacy</p>
+  <h2 class="section-title" style="color:#fff">Your data stays yours</h2>
+  <p class="section-sub" style="color:var(--gray-300)">HR data is the most sensitive data your company holds. We treat it that way.</p>
+  <div class="security-grid">
+    <div class="security-item">
+      <div class="icon">&#128274;</div>
+      <h4>Encrypted in transit &amp; at rest</h4>
+      <p>All data is encrypted using TLS 1.3 in transit. MongoDB Atlas enforces encryption at rest with AES-256.</p>
+    </div>
+    <div class="security-item">
+      <div class="icon">&#127759;</div>
+      <h4>GDPR compliant</h4>
+      <p>Consent tracking at field level. Withdrawal dates recorded. Configurable data retention periods per employee record.</p>
+    </div>
+    <div class="security-item">
+      <div class="icon">&#129302;</div>
+      <h4>AI data handling</h4>
+      <p>CV text is sent to AI providers for screening only. We do not store CVs beyond the session and do not train models on your data.</p>
+    </div>
+    <div class="security-item">
+      <div class="icon">&#128203;</div>
+      <h4>Audit-ready</h4>
+      <p>All leave approvals, stage changes, and AI scores are timestamped and traceable for compliance audits.</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:32px">
+    <a href="/security" style="color:var(--gray-300);font-size:13px;text-decoration:underline">Read our full security statement</a>
+    &nbsp;&middot;&nbsp;
+    <a href="/privacy" style="color:var(--gray-300);font-size:13px;text-decoration:underline">Privacy Policy</a>
+    &nbsp;&middot;&nbsp;
+    <a href="/terms" style="color:var(--gray-300);font-size:13px;text-decoration:underline">Terms of Service</a>
+  </div>
 </div>
 
 <!-- CTA -->
 <div class="cta-section">
   <h2>Your next hire is 30 seconds away</h2>
   <p>No credit card. No demo call. No 47-slide sales deck. Just open it and go.</p>
-  <a href="/dashboard" class="btn btn-primary">Open Simply HR</a>
+  <a href="/dashboard" class="btn-white">Open Simply HR</a>
 </div>
 
-<div class="footer">
-  Simply HR &copy; 2024. Smart HR for teams that move fast.
+<!-- Footer -->
+<div style="background:#fff">
+  <div class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Simply<span>HR</span></div>
+        <p>Smart, affordable HR for growing teams across Africa and Europe. No enterprise bloat, no consultants, no nonsense.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/pipeline">Pipeline</a>
+          <a href="/employees">Employees</a>
+          <a href="/leave">Leave</a>
+          <a href="/roles">Role Templates</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/security">Security Statement</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compliance</h5>
+          <a href="/privacy#gdpr">GDPR</a>
+          <a href="/security#ai">EU AI Act</a>
+          <a href="/security#data">Data Handling</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Simply HR &copy; 2024. Built for teams that move fast.</span>
+      <span>Lagos &middot; Brussels &middot; Nairobi &middot; Berlin &middot; Accra &middot; Amsterdam</span>
+    </div>
+  </div>
 </div>
 
 </body>

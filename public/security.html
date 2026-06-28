@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & AI Statement – Simply HR</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { background: var(--gray-50); }
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    .legal-wrap h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    .legal-wrap .subtitle { color: var(--gray-500); margin-bottom: 40px; font-size: 14px; }
+    .legal-wrap h2 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 10px; }
+    .legal-wrap p, .legal-wrap li { font-size: 15px; line-height: 1.7; color: var(--gray-700); }
+    .legal-wrap ul { padding-left: 20px; margin: 8px 0 16px; }
+    .legal-wrap li { margin-bottom: 4px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 14px; text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .topbar-legal { background: #fff; border-bottom: 1px solid var(--gray-200); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar-legal .logo { font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .topbar-legal nav a { font-size: 14px; color: var(--gray-600); text-decoration: none; margin-left: 20px; }
+    .topbar-legal nav a:hover { color: var(--primary); }
+    .ai-act-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 10px; padding: 20px 24px; margin: 24px 0; }
+    .ai-act-box h3 { font-size: 15px; font-weight: 600; color: #92400e; margin: 0 0 8px; }
+    .ai-act-box p { font-size: 14px; color: #78350f; margin: 0; line-height: 1.6; }
+    .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .sec-card { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px; }
+    .sec-card h3 { font-size: 14px; font-weight: 600; margin: 0 0 6px; }
+    .sec-card p { font-size: 13px; color: var(--gray-600); margin: 0; line-height: 1.5; }
+    .sec-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+    @media (max-width: 600px) { .security-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="topbar-legal">
+  <a href="/" class="logo">Simply HR</a>
+  <nav>
+    <a href="/dashboard">Open App</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </nav>
+</div>
+
+<div class="legal-wrap">
+  <a href="/" class="back-link">&#8592; Back to home</a>
+  <h1>Security &amp; AI Statement</h1>
+  <p class="subtitle">Last updated: 28 June 2026</p>
+
+  <p>This page explains how Simply HR protects your data, how our AI features work, and how we meet our obligations under the EU AI Act. We write this in plain language because trust should not require a law degree.</p>
+
+  <h2>Infrastructure security</h2>
+  <div class="security-grid">
+    <div class="sec-card">
+      <span class="sec-icon">&#128274;</span>
+      <h3>Encryption in transit</h3>
+      <p>All traffic is encrypted using TLS 1.3. HTTP connections are redirected to HTTPS automatically.</p>
+    </div>
+    <div class="sec-card">
+      <span class="sec-icon">&#128190;</span>
+      <h3>Encryption at rest</h3>
+      <p>All database data is encrypted at rest using AES-256 via MongoDB Atlas. Backups are encrypted with the same standard.</p>
+    </div>
+    <div class="sec-card">
+      <span class="sec-icon">&#127759;</span>
+      <h3>Cloud hosting</h3>
+      <p>Platform runs on Vercel (edge network) with MongoDB Atlas for data storage. Both are SOC 2 Type II certified.</p>
+    </div>
+    <div class="sec-card">
+      <span class="sec-icon">&#128202;</span>
+      <h3>Access controls</h3>
+      <p>Database access is restricted by IP allowlist and credential-based authentication. No public database endpoints.</p>
+    </div>
+  </div>
+
+  <h2>Data handling</h2>
+  <ul>
+    <li>Your employee data is logically isolated per organisation — no cross-tenant data access</li>
+    <li>We do not sell, share, or monetise your data or your employees' data</li>
+    <li>Platform administrators can export or delete all data at any time</li>
+    <li>Audit logs are retained for 2 years to support compliance reviews</li>
+    <li>Data is stored within the EU by default</li>
+  </ul>
+
+  <h2>AI features: how they work</h2>
+  <p>Simply HR uses AI to help you screen CVs and score candidates against role requirements. Here is exactly what happens:</p>
+  <ul>
+    <li>When you use CV screening, the CV text and your role criteria are sent to an AI inference provider (Groq or Google Gemini depending on availability)</li>
+    <li>The AI returns a structured score: skills match, experience match, education, language, culture fit, plus a summary and recommendation</li>
+    <li>The score and rationale are shown in the platform alongside the candidate profile</li>
+    <li>Nothing is done automatically — a human must review and act on every result</li>
+    <li>You can override, ignore, or flag any AI output</li>
+  </ul>
+
+  <div class="ai-act-box">
+    <h3>EU AI Act disclosure (Regulation 2024/1689)</h3>
+    <p>CV screening and candidate evaluation tools are classified as <strong>high-risk AI systems</strong> under Annex III of the EU AI Act. Simply HR treats this classification seriously. Our CV screening AI is advisory only: it provides scores and rationale to support human decision-making. No employment decision is made automatically. Human oversight is always required before any candidate is advanced or rejected. This disclosure is provided in compliance with EU AI Act transparency obligations.</p>
+  </div>
+
+  <h2>AI provider data processing</h2>
+  <ul>
+    <li><strong>Groq:</strong> Primary AI provider. Data processed under Groq's enterprise DPA. CV content is not used to train Groq models under our agreement.</li>
+    <li><strong>Google Gemini:</strong> Fallback AI provider. Data processed under Google's Cloud DPA with EU Standard Contractual Clauses where applicable.</li>
+    <li><strong>Data minimisation:</strong> Only the CV text and role criteria required for scoring are sent. No names, contact details, or protected characteristics are included in AI requests.</li>
+    <li><strong>No model training on your data:</strong> We have contractual commitments from our AI providers that your data is not used to train or improve their foundation models.</li>
+  </ul>
+
+  <h2>Vulnerability disclosure</h2>
+  <p>If you discover a security vulnerability in Simply HR, please report it responsibly to <strong>security@simplyhr.io</strong>. We commit to:</p>
+  <ul>
+    <li>Acknowledging your report within 48 hours</li>
+    <li>Keeping you informed of our investigation</li>
+    <li>Crediting you (if you wish) once the issue is resolved</li>
+    <li>Not pursuing legal action against good-faith security researchers</li>
+  </ul>
+
+  <h2>GDPR compliance summary</h2>
+  <ul>
+    <li>Simply HR acts as Data Processor; you are the Data Controller</li>
+    <li>A Data Processing Agreement (DPA) is available on request</li>
+    <li>We support all GDPR data subject rights through platform features and manual request handling</li>
+    <li>We appoint a Data Protection contact for EU-related queries: <strong>dpo@simplyhr.io</strong></li>
+    <li>We maintain records of processing activities (RoPA) and can provide these on request for audits</li>
+  </ul>
+
+  <h2>Audit readiness</h2>
+  <p>Simply HR is designed to help you pass HR compliance audits. Features include:</p>
+  <ul>
+    <li>GDPR consent tracking at individual employee level with consent dates and withdrawal records</li>
+    <li>Data retention period configuration per employee</li>
+    <li>Work permit expiry tracking with advance warnings</li>
+    <li>Leave record history with approval audit trail</li>
+    <li>AI screening decision logs with scores, criteria, and rationale stored per candidate</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Security questions: <strong>security@simplyhr.io</strong><br>
+  Data protection / DPO: <strong>dpo@simplyhr.io</strong><br>
+  General privacy: <strong>privacy@simplyhr.io</strong></p>
+</div>
+
+<footer style="background:#1e293b;color:#94a3b8;text-align:center;padding:24px;font-size:13px">
+  <a href="/privacy" style="color:#94a3b8;margin:0 12px">Privacy</a>
+  <a href="/terms" style="color:#94a3b8;margin:0 12px">Terms</a>
+  <a href="/security" style="color:#94a3b8;margin:0 12px">Security</a>
+  &nbsp;&copy; 2026 Simply HR
+</footer>
+</body>
+</html>
