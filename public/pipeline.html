@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeopleBase - Candidate Pipeline</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">PeopleBase</div>
+    <nav>
+      <a href="/"><span class="icon">&#9632;</span> Dashboard</a>
+      <a href="/pipeline" class="active"><span class="icon">&#9654;</span> Pipeline</a>
+      <a href="/employees"><span class="icon">&#9787;</span> Employees</a>
+      <a href="/leave"><span class="icon">&#9992;</span> Leave</a>
+      <a href="/roles"><span class="icon">&#9998;</span> Roles</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="page-header">
+      <h1>Candidate Pipeline</h1>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-outline">Upload CVs</button>
+        <button class="btn btn-primary">+ Add Candidate</button>
+      </div>
+    </div>
+
+    <div class="kanban">
+      <!-- Applied -->
+      <div class="kanban-col">
+        <h3>Applied <span class="count">4</span></h3>
+        <div class="k-card">
+          <div class="name">Emeka Uche</div>
+          <div class="role">Frontend Engineer &middot; Lagos</div>
+          <div class="score"><span class="badge badge-warning">AI: 58</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Sofia Rossi</div>
+          <div class="role">Product Designer &middot; Milan</div>
+          <div class="score"><span class="badge badge-info">AI: 71</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Yemi Oladipo</div>
+          <div class="role">Sales Lead &middot; Abuja</div>
+          <div class="score"><span class="badge badge-danger">AI: 34</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Anna Kowalski</div>
+          <div class="role">Backend Engineer &middot; Warsaw</div>
+          <div class="score"><span class="badge badge-success">AI: 82</span></div>
+        </div>
+      </div>
+
+      <!-- Screened -->
+      <div class="kanban-col">
+        <h3>Screened <span class="count">3</span></h3>
+        <div class="k-card">
+          <div class="name">Lena Schmidt</div>
+          <div class="role">Backend Engineer &middot; Berlin</div>
+          <div class="score"><span class="badge badge-info">AI: 81</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Sade Bakare</div>
+          <div class="role">HR Manager &middot; Lagos</div>
+          <div class="score"><span class="badge badge-success">AI: 84</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Pieter de Vries</div>
+          <div class="role">Data Analyst &middot; Amsterdam</div>
+          <div class="score"><span class="badge badge-info">AI: 69</span></div>
+        </div>
+      </div>
+
+      <!-- Interview -->
+      <div class="kanban-col">
+        <h3>Interview <span class="count">2</span></h3>
+        <div class="k-card">
+          <div class="name">Adunni Okafor</div>
+          <div class="role">Product Designer &middot; Lagos</div>
+          <div class="score"><span class="badge badge-success">AI: 88</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Daniel Asante</div>
+          <div class="role">Frontend Engineer &middot; Accra</div>
+          <div class="score"><span class="badge badge-info">AI: 74</span></div>
+        </div>
+      </div>
+
+      <!-- Offer -->
+      <div class="kanban-col">
+        <h3>Offer <span class="count">2</span></h3>
+        <div class="k-card">
+          <div class="name">Marie Dubois</div>
+          <div class="role">Sales Lead &middot; Paris</div>
+          <div class="score"><span class="badge badge-info">AI: 64</span></div>
+        </div>
+        <div class="k-card">
+          <div class="name">Grace Obi</div>
+          <div class="role">HR Manager &middot; Nairobi</div>
+          <div class="score"><span class="badge badge-success">AI: 91</span></div>
+        </div>
+      </div>
+
+      <!-- Hired -->
+      <div class="kanban-col">
+        <h3>Hired <span class="count">1</span></h3>
+        <div class="k-card">
+          <div class="name">Chidi Okeke</div>
+          <div class="role">Backend Engineer &middot; Lagos</div>
+          <div class="score"><span class="badge badge-success">AI: 85</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mobile-nav">
+  <nav>
+    <a href="/"><span class="icon">&#9632;</span>Home</a>
+    <a href="/pipeline" class="active"><span class="icon">&#9654;</span>Pipeline</a>
+    <a href="/employees"><span class="icon">&#9787;</span>Team</a>
+    <a href="/leave"><span class="icon">&#9992;</span>Leave</a>
+  </nav>
+</div>
+<script src="/js/app.js"></script>
+<script src="/js/pipeline.js"></script>
+</body>
+</html>
